@@ -104,10 +104,10 @@ position = Vector2(-2, -8)
 shape = SubResource("RectangleShape2D_24npj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "walk"
 libraries = {
 "": SubResource("AnimationLibrary_3l8tb")
 }
+autoplay = "walk"
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_dlnxn")
