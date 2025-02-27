@@ -60,9 +60,9 @@ frame = 4
 shape = SubResource("CircleShape2D_k42x6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "anim"
 libraries = {
 "": SubResource("AnimationLibrary_j4cml")
 }
+autoplay = "anim"
 
 [connection signal="body_entered" from="." to="." method="_on_item_body_entered"]
