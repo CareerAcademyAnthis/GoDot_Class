@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://de6i5ke6arpbd"]
+[gd_scene load_steps=11 format=3 uid="uid://de6i5ke6arpbd"]
 
 [ext_resource type="Script" path="res://ui/title.gd" id="1_i841j"]
 [ext_resource type="Texture2D" uid="uid://elfqj4ni4jxs" path="res://assets/environment/back.png" id="1_lcym3"]
 [ext_resource type="Texture2D" uid="uid://c74m2qnljojh0" path="res://assets/environment/middle.png" id="2_chp7x"]
 [ext_resource type="FontFile" uid="uid://buosaulgdl55e" path="res://assets/Kenney Thick.ttf" id="3_kaopf"]
+[ext_resource type="AudioStream" uid="uid://cc3xlhl6piq6u" path="res://assets/audio/Intro Theme.ogg" id="5_xhcfv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gft82"]
 font = ExtResource("3_kaopf")
@@ -162,10 +163,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -367.0
-offset_top = -40.0
-offset_right = 353.0
-offset_bottom = 41.0
+offset_left = -360.0
+offset_top = -40.5
+offset_right = 360.0
+offset_bottom = 40.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Jungle Jump"
@@ -190,3 +191,7 @@ libraries = {
 "": SubResource("AnimationLibrary_7ssu8")
 }
 autoplay = "intro"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xhcfv")
+autoplay = true

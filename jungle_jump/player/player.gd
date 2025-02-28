@@ -23,6 +23,7 @@ func reset(_position):
 	
 func hurt():
 	if state != HURT:
+		$HurtSound.play()
 		change_state(HURT)
 	
 func get_input():
@@ -42,6 +43,7 @@ func get_input():
 		$Sprite2D.flip_h = true
 	# only allow jumping when on the ground
 	if jump and is_on_floor():
+		$JumpSound.play()
 		change_state(JUMP)
 		velocity.y = jump_speed
 	# IDLE transitions to RUN when moving

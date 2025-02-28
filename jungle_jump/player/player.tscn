@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://nt05y6hvkwp7"]
+[gd_scene load_steps=13 format=3 uid="uid://nt05y6hvkwp7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jgh2d"]
 [ext_resource type="Texture2D" uid="uid://lqals8v555pu" path="res://assets/player_sheet.png" id="1_r4dpw"]
+[ext_resource type="AudioStream" uid="uid://cnmtgqiun2gco" path="res://assets/audio/jump4.ogg" id="3_bfy57"]
+[ext_resource type="AudioStream" uid="uid://g6ogr65lypmd" path="res://assets/audio/hurt1.ogg" id="4_jmhww"]
 
 [sub_resource type="Animation" id="Animation_r1mg8"]
 length = 0.001
@@ -145,3 +147,9 @@ shape = SubResource("RectangleShape2D_v5rel")
 position = Vector2(-5, 27)
 zoom = Vector2(2.5, 2.5)
 limit_top = 0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bfy57")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jmhww")
