@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var power_bar = $MarginContainer/VBoxContainer/PowerBar
-@onready var shots = $MarginContainer/VBContainer/Shots
+@onready var shots = $MarginContainer/VBoxContainer/Shots
 
 var bar_textures = {
 	"green": preload("res://assets/bar_green.png"),
@@ -10,7 +10,7 @@ var bar_textures = {
 }
 
 func update_shots(value):
-	shots.text = "Shots: %s" % value
+	shots.text
 	
 func update_power_bar(value):
 	power_bar.texture_progress = bar_textures["green"]

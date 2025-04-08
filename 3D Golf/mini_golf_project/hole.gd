@@ -4,14 +4,19 @@ enum {AIM, SET_POWER, SHOOT, WIN}
 
 @export var power_speed = 100
 @export var angle_speed = 1.1
+@export var mouse_sensitivity = 150
+#@export var next_hole : PackedScene
 
 var angle_change = 1
-var power = 0
 var power_change = 1
 var shots = 0
 var state = AIM
+var power = 0
+var hole_dir = 0
+
 
 func _ready() -> void:
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Arrow.hide()
 	$Ball.position = $Tee.position
 	change_state(AIM)
@@ -43,13 +48,36 @@ func _input(event: InputEvent) -> void:
 			SET_POWER:
 				change_state(SHOOT)
 				
+func _process(delta: float) -> void:
+	match state:
+		AIM:
+			animate_arrow(delta)
+		SET_POWER:
+			animate_power(delta)
+		SHOOT:
+			pass
+			
+		
+				
 func animate_arrow(delta):
+	$Arrow.rotation.y += angle_speed * angle_change * delta
+	if $Arrow.rotation.y > PI /2:
+		angle_change = -1
+	if $Arrow.rotation.y < -PI / 2:
+		angle_change = 1
+		
+func animate_power(delta):
 	power += power_speed * power_change * delta
 	if power >= 100:
 		power_change = -1
 	if power <= 0:
 		power_change = 1
 	$UI.update_power_bar(power)
+	
+func _on_hole_body_entered(body):
+	if body.name == "Ball":
+		print("win!")
+		change_state(WIN)
 	
 func _on_ball_stopped():
 	if state == SHOOT:

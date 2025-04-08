@@ -70,3 +70,4 @@ shape = SubResource("CylinderShape3D_8x26n")
 [node name="UI" parent="." instance=ExtResource("3_1nnsx")]
 
 [connection signal="stopped" from="Ball" to="." method="_on_ball_stopped"]
+[connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
