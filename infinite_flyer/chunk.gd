@@ -25,8 +25,8 @@ func add_buildings():
 				continue
 			var nb = buildings[randi_range(0, buildings.size()-1)].instantiate()
 			add_child(nb)
-			nb.transform.orgin.z = zpos
-			nb.transform.orgin.x = 20 * side
+			nb.transform.origin.z = zpos
+			nb.transform.origin.x = 20 * side
 			zpos -= nb.get_node("MeshInstance3D").mesh.get_aabb().size.z
 			
 func add_center_buildings():
@@ -45,6 +45,16 @@ func add_rings():
 			var nr = ring.instantiate()
 			nr.position.z = z
 			nr.position.y = randf_range(3, 17)
+			match level:
+				0: pass
+				1:
+					nr.move_y = true
+				2:
+					nr.position.x = randf_range(-10, 10)
+					nr.move_y = true
+				3:
+					nr.position.x = randf_range(-10, 10)
+					nr.move_x = true
 			add_child(nr)
 			
 
