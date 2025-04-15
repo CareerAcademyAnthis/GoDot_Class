@@ -1,10 +1,12 @@
 extends Node3D
 
 var chunk = preload("res://chunk.tscn")
+var title_screen = "res://title_screen.tscn"
 
 var num_chunks = 1
 var chunk_size = 200
 var max_position = -100
+
 
 func _process(delta: float) -> void:
 	if $Plane.position.z < max_position:
@@ -15,3 +17,6 @@ func _process(delta: float) -> void:
 		add_child(new_chunk)
 		max_position -= chunk_size
 		
+
+func _on_plane_dead() -> void:
+	get_tree(). change_scene_to_file(title_screen)

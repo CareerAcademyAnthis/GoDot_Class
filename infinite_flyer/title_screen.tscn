@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://djobgfvfisq0j"]
+
+[ext_resource type="Script" path="res://title_screen.gd" id="1_dqhrw"]
+[ext_resource type="Texture2D" uid="uid://b3dl07hst7agv" path="res://assets/styled_sky.hdr" id="1_gpgb0"]
+[ext_resource type="FontFile" uid="uid://dp8goglqofgjv" path="res://assets/Baloo2-Medium.ttf" id="1_yma8w"]
+[ext_resource type="Texture2D" uid="uid://dllkbxx7wj057" path="res://assets/buttons/play_button.png" id="2_gldkh"]
+[ext_resource type="Texture2D" uid="uid://lg4rxdyqtvnt" path="res://assets/buttons/play_button_h.png" id="3_5ehvd"]
+[ext_resource type="Texture2D" uid="uid://doj2idqyn57qq" path="res://assets/buttons/play_button_pr.png" id="4_p77gg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3cwdp"]
+font = ExtResource("1_yma8w")
+font_size = 128
+outline_size = 10
+outline_color = Color(0.236231, 0.698551, 0.233581, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 238.0
+offset_bottom = 203.0
+script = ExtResource("1_dqhrw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1814.0
+offset_top = -427.0
+offset_right = 2282.0
+offset_bottom = 1621.0
+texture = ExtResource("1_gpgb0")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 16.55
+anchor_top = 12.137
+anchor_right = 16.55
+anchor_bottom = 12.137
+offset_left = -3447.9
+offset_top = -2191.81
+offset_right = -3310.9
+offset_bottom = -2045.81
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_gldkh")
+texture_pressed = ExtResource("3_5ehvd")
+texture_hover = ExtResource("4_p77gg")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 8.0
+offset_right = 1147.0
+offset_bottom = 211.0
+text = "Infinite Flyer"
+label_settings = SubResource("LabelSettings_3cwdp")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 502.0
+offset_right = 1140.0
+offset_bottom = 632.0
+text = "High Score: 0"
+label_settings = SubResource("LabelSettings_3cwdp")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
